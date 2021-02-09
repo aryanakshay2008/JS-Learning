@@ -49,7 +49,7 @@ function add(total,num){
 Array.prototype.myreduce=function(callback,initialValue=0){
     let currentArr=this;
     let output=initialValue;     
-    this.forEach((e) => 
+    currentArr.forEach((e) => 
     output = callback(output,e));
     return output;
 }
