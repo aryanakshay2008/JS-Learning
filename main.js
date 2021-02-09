@@ -57,38 +57,19 @@ function timeout(){
 
 timeout();
 
-
-function binarySearch(arr, elem, start,end){
-
-    if(start > end) return false;
-
-    let mid = Math.floor((start + end)/2);
-
-    if(arr[mid]===elem) return true;
-
-    if(arr[mid]>elem)  return binarySearch(arr,elem,start,mid-1);
-
-    else return binarySearch(arr,elem,mid+1,end);
-}
-
-let arr123 = [1, 3, 5, 7, 8, 9]; 
-let x = 5; 
-
-console.log(binarySearch(arr123,x,0,arr.length-1));
-
 console.log(1); 
 setTimeout(function(){console.log(2)}, 1000); 
 setTimeout(function(){console.log(3)}, 0); 
 console.log(4);  
 
+// Print i value
 for(let i=0; i<5;i++)
 {
     setTimeout(() => {
         console.log(i)
     }, 5000);
 }
-
-
+// Print i value - Decoupling in other function
 for(var i=0; i<5;i++)
 {
     delay(i);
@@ -141,7 +122,6 @@ function multiply(a){
 }
 
 
-
 function getSum50Items(arr,sum){
 
   var result=[];
@@ -192,9 +172,7 @@ const constantObj={
   wheel:4,
   color:'red'
 }
-
 constantObj.color='yellow';
-
 console.log(constantObj);
 
 
@@ -220,7 +198,6 @@ function multiplyFn(a){
         return a*b;
     }
 }
-
 console.log(multiplyFn(3)(4));
 
 function counter(){
@@ -228,165 +205,13 @@ function counter(){
 
     return function (countBy){
         counter=counter+countBy;
-
         console.log(counter);
     }
 }
-
 var incrementCount=counter();
-
 incrementCount(1);
 incrementCount(2);
 incrementCount(3);
-
-function fibonacci(num) 
-    {    
-        if(num==1) 
-            return 0; 
-        if (num == 2) 
-            return 1; 
-        return fibonacci(num - 1) + fibonacci(num - 2); 
-    } 
-
-console.log(fibonacci(8))
-
-function fibo(num)
-{
-    var num1=0;
-    var num2=1;
-    var sum;
-
-    for(var i=1;i<num;i++){
-        console.log(num1);
-        sum=num1+num2;
-        num1=num2;
-        num2=sum;
-    }
-
-    return num1;
-
-}
-
-console.log(fibo(8));
-
-function factorial(n){
-    let answer = 1;
-    if (n == 0 || n == 1){
-      return answer;
-    }else{
-      for(var i = 1; i <= n; i++){
-        answer = answer * i;
-      }
-      return answer;
-    }  
-  }
-
-
-
-function factorial(n){
-    //base case
-    if(n == 0 || n == 1){
-        return 1;
-    //recursive case
-    }else{
-        return n * factorial(n-1);
-    }
-}
-
-function bubbleSort(arr){
-    var len=arr.length;
-
-    for(var i=0;i<len;i++){
-        for (var j=0;j<len;j++)
-        {
-            if(arr[j]>arr[j+1])
-            {
-                let temp=arr[j];
-                arr[j]=arr[j+1];
-                arr[j+1]=temp;
-            }
-        }
-    }
-
-    console.log(arr);
-}
-
-bubbleSort(["red", "black", "white", "black", "black", "red", "white"]);
-
-
-//Polyfill for map
-
-Array.prototype.myMap=function (callback)
-{
-    let newArray=[];
-    this.forEach(element => {
-        newArray.push(callback(element));        
-    });
-    return newArray;
-}
-
-let ar=[1,2,3];
-
-console.log(ar.myMap((e)=> e*10));
-
-//Polyfill for Bind
-let employee={
-    name:'Akshay',
-    last:'Pawale'
-}
-
-function greeting(greetingmsg)
-{
-    console.log(greetingmsg+' '+this.name+' '+this.last);
-}
-
-var hiGreeting=greeting.bind(employee);
-hiGreeting('Hi');
-
-Function.prototype.myBind=function (...args){
-    let obj=this;
-    let params = args.slice(1);
-    return function(...args2){
-        obj.apply(args[0],[...params,...args2]);
-    }
-}
-
-var hiMyBindGreeting=greeting.myBind(employee);
-hiMyBindGreeting('Hi');
-
-//Polyfill for reduce
-let arr23=[1,5,7,9];
-
-console.log(arr23.reduce(add,56));
-
-function add(total,num){
-    return total=total+num;
-}
-
-Array.prototype.myreduce=function(callback,initialValue=0){
-    let currentArr=this;
-    let output=initialValue;     
-    this.forEach((e) => 
-    output = callback(output,e));
-    return output;
-}
-
-console.log(arr23.myreduce(add,56));
-
-// Polyfill for includes
-var arr=[1,2,3];
-
-var result=arr.includes(1);
-
-console.log(result);
-
-Array.prototype.myincludes=function(item,fromIndex=0){    
-    let arr=this.slice(fromIndex);
-    return this.filter(x => x===item).length > 0 ? true :false;
-}
-
-var myresult=arr.includes(1);
-console.log(myresult);
 
 //Deep Copy
 var A=[1,2.3,4];
@@ -395,41 +220,10 @@ console.log(B);
 A.push(50);
 console.log(B);
 
-// Palindrome -- 2002
+// Var is premitive data type and array and object is reference datatype
+var a=2;
+var b=a;
 
-function isPalindrome(str)
-{
-    return str === str.split('').reverse().join('');
-}
-console.log(isPalindrome('2002'));
-console.log(isPalindrome('2020'));
-
-function getPalindrome(str)
-{
-    let inputStr=str.split('');
-    //let reverseStr=JSON.parse(JSON.stringify(inputStr)).reverse();
-    let reverseStr=Array.from(inputStr).reverse();
-    return [...inputStr,...reverseStr].join('');
-}
-
-console.log(getPalindrome("20"));
-
-let prom = new Promise((resolve, reject) => {
-    let date = new Date().getDate();
-    if (date % 2 == 0) {
-        setTimeout(() => {
-            resolve("I am success");
-        }, 3000);
-    }
-    else {
-        setTimeout(() => {
-            reject("Not valid date");
-        });
-    }
-});
-
-prom.then((data) => {
-    console.log(data);
-}).catch((err) => {
-    console.log(err);
-});
+b=4;
+console.log(a);
+console.log(b);
