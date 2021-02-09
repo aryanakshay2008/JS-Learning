@@ -1,11 +1,39 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
     <title>Document</title>
 </head>
+
 <body>
+    <header>
+        <div class="center">
+            PayPal Portal
+        </div>
+    </header>
+    <form id="userDetails" onsubmit="console.log('FormSubmitted: '+ event.submitter.name); return false;" class="container">
+        <table class="center">
+            <tr>
+                <td><label for="userName">Enter User Name:</label></td>
+                <td><input type="text" name="UserName" id="userName"></td>
+            </tr>
+            <tr>
+                <td><label for="password">Enter Password:</label></td>
+                <td><input type="password" name="Password" id="password"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" name="Draft" value="Save As Draft">
+                    <input type="submit" name="Save" value="Save">
+                </td>
+            </tr>
+        </table>
+    </form>
     <script src="/main.js"></script>
 </body>
+
 </html>
