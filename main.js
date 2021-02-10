@@ -300,3 +300,45 @@ let throttle=function (fn,delay)
 }
 
 var throttledGetData = throttle(getData,300);
+
+//Sorting array
+var arr=[1,4,2,5,6];
+arr.sort((a,b)=>{
+    if(a<b) return -1;
+
+    if(a>b) return 1;
+
+    else 0;
+});
+
+arr.sort();
+console.log(arr);
+
+//Sort Arr of objects
+var arrObj=[{id:2,name:'b'},{id:3,name:'c'},{id:1,name:'a'}];
+arrObj.sort((a,b)=>{
+    return a['id']<b['id']? -1: a['id']>b['id'] ? 1:0;
+});
+console.log(arrObj);
+
+// Sort array from reference 
+var refSortArr=["red","black","white"];
+var givenArr=["red", "black", "white", "black", "black", "red", "white"];
+
+givenArr.sort((a,b)=>{
+    if(refSortArr.indexOf(a)<refSortArr.indexOf(b))
+    {
+        return -1;
+    }
+    else if(refSortArr.indexOf(a)>refSortArr.indexOf(b))
+    {
+        return 1;
+    }
+    else return 0;
+});
+
+console.log(givenArr);
+
+(function(){
+    console.log("IIF called");
+})();
