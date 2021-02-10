@@ -1,17 +1,3 @@
-//Polyfill for map
-Array.prototype.myMap=function (callback)
-{
-    let newArray=[];
-    this.forEach(element => {
-        newArray.push(callback(element));        
-    });
-    return newArray;
-}
-
-let ar=[1,2,3];
-
-console.log(ar.myMap((e)=> e*10));
-
 //Polyfill for Bind
 let employee={
     name:'Akshay',
@@ -36,6 +22,19 @@ Function.prototype.myBind=function (...args){
 
 var hiMyBindGreeting=greeting.myBind(employee);
 hiMyBindGreeting('Hi');
+
+//Polyfill for map
+Array.prototype.myMap=function (callback)
+{
+    let newArray=[];
+    this.forEach(element => {
+        newArray.push(callback(element));        
+    });
+    return newArray;
+}
+
+let ar=[1,2,3];
+console.log(ar.myMap((e)=> e*10));
 
 //Polyfill for reduce
 let arr23=[1,5,7,9];

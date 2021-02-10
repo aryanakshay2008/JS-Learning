@@ -1,8 +1,20 @@
 .container{
-    align-content: center;
+ 
 }
 .center { 
  margin-left: auto;
- margin-right: auto;
- align-content: center;
+ margin-right: auto; 
+}
+
+table{
+    width:70%;    
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td:nth-child(2){
+    width:80%
 }

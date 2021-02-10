@@ -15,6 +15,44 @@ console.log([...arr1,...arr2]);
 arr2.push(...arr1)
 console.log(arr2);
 
+// Remove chars from string from nth occurence
+function removeCharsFromString(arr,occurance){
+    var hashMap={};
+    var result=[];
+    
+    for(var i=0; i<arr.length; i++){
+        if(hashMap[arr[i]])
+        {
+            var count=hashMap[arr[i]];
+            if(count<occurance)
+            {
+                hashMap[arr[i]]=count+1;
+                result.push(arr[i]);
+            }
+        }
+        else {
+            hashMap[arr[i]]=1;
+            result.push(arr[i]);
+        }
+    }
+    return result.join('');
+}
+
+console.log(removeCharsFromString('AkshayPawale'.toLowerCase().split(''),2));
+
+// Get nth Max from array
+function getNthMax(arr,n){
+    var max=Math.max.apply(this,arr);
+    if(n>1)
+    {
+        delete arr[arr.indexOf(max)];
+        return getNthMax(arr,n-1);
+    }
+    else{
+        return max;
+    }
+}
+console.log(getNthMax([1,8,98,56,63,55],2));
 
 //Find duplicate in array
 var arrWithDup=[1,7,5,8,1,3,3,4,5,6,4];
@@ -108,6 +146,7 @@ function foo2()
   };
 }
 
+// Function Currying
 var multiply = function (x,y){
  return x*y;
 }
