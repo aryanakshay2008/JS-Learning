@@ -14,7 +14,7 @@
             PayPal Portal
         </div>
     </header>
-    <form id="userDetails" onsubmit="console.log('FormSubmitted: '+ event.submitter.name); return false;" class="container">
+    <form id="userDetails" onsubmit="console.log('FormSubmitted: '+ event.submitter.name); return false;">
         <table class="center">
             <tr>
                 <td><label for="userName">Enter User Name:</label></td>
@@ -34,10 +34,13 @@
         </table>
     </form>
     <input type="text" name="search" id="search" onkeyup="debounceGetData(event.target.value)">
+    <div class="middle">
+        <div class="innerdiv"></div>
+    </div>
     <script src="/main.js"></script>
-    <!-- <script src="/algo.js"></script>
-    <script src="/async.js"></script>
-    <script src="/polyfill.js"></script> -->
+    <!-- <script src="/algo.js"></script> -->
+    <!-- <script src="/async.js"></script> -->
+    <!-- <script src="/polyfill.js"></script> -->
 </body>
 
 </html>

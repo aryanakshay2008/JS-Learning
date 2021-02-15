@@ -83,6 +83,30 @@ function removeDuplicate(){
 
 console.log(removeDuplicate.call(arrWithDup));
 
+// Find missing sequence number
+var arr = [0,3,5,8,4,6,1,9,7];
+
+function getMissingNos(arr){
+    var missingNos=[];
+    var max=Math.max.apply(this,arr);
+    for(var i=0;i<=max;i++)
+    {
+        if(!arr.includes(i)){
+            missingNos.push(i);
+        }  
+    }
+
+    return missingNos;
+}
+
+console.log(getMissingNos(arr));
+
+(function(){
+    var a = b = 3;
+    })();
+console.log(b);
+    
+
 function timeout(){
   setTimeout(function(){
       alert("setTimeOut")

@@ -72,3 +72,23 @@ function getEmployeeName(callback){
  }
  
  printEmployeeDetails();
+
+const promise1 = new Promise((resolve, reject) => {
+    const timer1 = setTimeout(() => {
+      resolve('success')
+    }, 3000)
+  })
+  const promise2 = promise1.then(() => {
+    throw new Error('error!!!')
+  })
+  
+  console.log('promise1', promise1)
+  console.log('promise2', promise2)
+  
+  const timer2 = setTimeout(() => {
+    console.log('promise1', promise1);
+    console.log('promise2', promise2);
+  }, 2000)
+
+// Promise and Settimeout console.log
+//https://medium.com/javascript-in-plain-english/6-interview-questions-that-combine-promise-and-settimeout-34c430fc297e
