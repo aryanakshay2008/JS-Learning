@@ -84,7 +84,7 @@ function removeDuplicate(){
 console.log(removeDuplicate.call(arrWithDup));
 
 // Find missing sequence number
-var arr = [0,3,5,8,4,6,1,9,7];
+var arrMissing = [0,3,5,8,4,6,1,9,7];
 
 function getMissingNos(arr){
     var missingNos=[];
@@ -99,7 +99,7 @@ function getMissingNos(arr){
     return missingNos;
 }
 
-console.log(getMissingNos(arr));
+console.log(getMissingNos(arrMissing));
 
 (function(){
     var a = b = 3;
@@ -240,7 +240,7 @@ console.log(constantObj);
 
 
 let a=120;
-var a=10;
+//var a=10;
 
 
 function sum(a){
@@ -284,11 +284,11 @@ A.push(50);
 console.log(B);
 
 // Var is premitive data type and array and object is reference datatype
-var a=2;
-var b=a;
+var c=2;
+var b=c;
 
 b=4;
-console.log(a);
+console.log(c);
 console.log(b);
 
 // Debounce
@@ -315,19 +315,21 @@ let throttle=function (fn,delay)
     let context=this;
     let flag=true;
     return function(...args){
-        fn.apply(context,args);
-        flag=false;
-        setTimeout(() => {
-            flag=true;
-        }, delay);
+        if(flag){
+            fn.apply(context,args);
+            flag=false;
+            setTimeout(() => {
+                flag=true;
+            }, delay);
+        }        
     }
 }
 
 var throttledGetData = throttle(getData,300);
 
 //Sorting array
-var arr=[1,4,2,5,6];
-arr.sort((a,b)=>{
+var arrToSort=[1,4,2,5,6];
+arrToSort.sort((a,b)=>{
     if(a<b) return -1;
 
     if(a>b) return 1;
@@ -335,8 +337,8 @@ arr.sort((a,b)=>{
     else 0;
 });
 
-arr.sort();
-console.log(arr);
+arrToSort.sort();
+console.log(arrToSort);
 
 //Sort Arr of objects
 var arrObj=[{id:2,name:'b'},{id:3,name:'c'},{id:1,name:'a'}];
@@ -366,3 +368,10 @@ console.log(givenArr);
 (function(){
     console.log("IIF called");
 })();
+
+//Event Delegation
+document.querySelector("#grandparent").addEventListener("click",function(event){
+    if(event.target.id){
+        alert(event.target.id +" clicked");
+    }
+});
